@@ -148,14 +148,14 @@ class Cells:
         return '\n'.join(r)
 
 async def ticktock(dut):
-    await Timer(5, units='ns')
+    await Timer(5, unit='ns')
     dut.clk.value = 1
-    await Timer(10, units='ns')
+    await Timer(10, unit='ns')
     dut.clk.value = 0
-    await Timer(5, units='ns')
+    await Timer(5, unit='ns')
 
 async def delay():
-    await Timer(1, units='ns')
+    await Timer(1, unit='ns')
 
 @cocotb.test(skip=gate_level)
 async def test_fpga(dut):
