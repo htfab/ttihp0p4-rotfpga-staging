@@ -1,31 +1,31 @@
 `default_nettype none
 
 module p12_tile (
-   input clk,     // clock
-   input rst_n,   // active-low reset
-   input in_se,   // scan chain enable
-   input in_sc,   // scan chain input
-   input in_lb,   // loop breaker
-   input in_v,    // vertical flip
-   input in_h,    // horizontal flip
-   input in_d,    // diagonal flip
-   input in_t,    // top input
-   input in_r,    // right input
-   input in_b,    // bottom input
-   input in_l,    // left input
-   input [1:0] bi_l,  // loop breaker inserts
-   output [1:0] bo_b, //   bypass: bi_l <- bo_b
-   output [1:0] bo_l, //   latch:  bi_l <- bo_l
-   output out_sc, // scan chain output
-   output out_t,  // top output
-   output out_r,  // right output
-   output out_b,  // bottom output
-   output out_l   // left output
+   (* keep, dont_touch *) input clk,     // clock
+   (* keep, dont_touch *) input rst_n,   // active-low reset
+   (* keep, dont_touch *) input in_se,   // scan chain enable
+   (* keep, dont_touch *) input in_sc,   // scan chain input
+   (* keep, dont_touch *) input in_lb,   // loop breaker
+   (* keep, dont_touch *) input in_v,    // vertical flip
+   (* keep, dont_touch *) input in_h,    // horizontal flip
+   (* keep, dont_touch *) input in_d,    // diagonal flip
+   (* keep, dont_touch *) input in_t,    // top input
+   (* keep, dont_touch *) input in_r,    // right input
+   (* keep, dont_touch *) input in_b,    // bottom input
+   (* keep, dont_touch *) input in_l,    // left input
+   (* keep, dont_touch *) input [1:0] bi_l,  // loop breaker inserts
+   (* keep, dont_touch *) output [1:0] bo_b, //   bypass: bi_l <- bo_b
+   (* keep, dont_touch *) output [1:0] bo_l, //   latch:  bi_l <- bo_l
+   (* keep, dont_touch *) output out_sc, // scan chain output
+   (* keep, dont_touch *) output out_t,  // top output
+   (* keep, dont_touch *) output out_r,  // right output
+   (* keep, dont_touch *) output out_b,  // bottom output
+   (* keep, dont_touch *) output out_l   // left output
 );
 
-reg r_v, r_h, r_d, r_gnl, r_ghl, r_sc;
-wire w_vt, w_vb, w_hr, w_hl, w_dh, w_dv, w_na;
-wire w_gn, w_gh, w_oh, w_ov, w_si;
+(* keep, dont_touch *) reg r_v, r_h, r_d, r_gnl, r_ghl, r_sc;
+(* keep, dont_touch *) wire w_vt, w_vb, w_hr, w_hl, w_dh, w_dv, w_na;
+(* keep, dont_touch *) wire w_gn, w_gh, w_oh, w_ov, w_si;
 
 // configuration latches to store the current state of vertical, horizontal and diagonal flips
 // r_v, r_h, r_d are the currently latched values

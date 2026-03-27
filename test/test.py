@@ -3,8 +3,6 @@ from cocotb.clock import Clock
 from cocotb.triggers import RisingEdge, FallingEdge, Timer, ClockCycles
 import os
 
-gate_level = 'GATES' in os.environ
-
 fpga_config = (
     (0,0,6,0,3,5,1,2),
     (5,3,0,0,3,3,4,2),
@@ -59,8 +57,8 @@ class Cells:
             return getattr(self.dut.user_project.g.g_y[y].g_x[x].t, comp)
         except AttributeError:
             try:
-                return self.dut.user_project._id(f'\\g.g_y[{y}].g_x[{x}].t.{comp}', extended=False)
-            except AttributeError:
+                return self.dut.user_project[f'\\g.g_y[{y}].g_x[{x}].t.{comp}']
+            except KeyError:
                 class Missing:
                     value = '?'
                 return Missing()
@@ -157,7 +155,7 @@ async def ticktock(dut):
 async def delay():
     await Timer(1, unit='ns')
 
-@cocotb.test(skip=gate_level)
+@cocotb.test()
 async def test_fpga(dut):
     dut._log.info("start")
     gatelevel = os.environ.get('GATES') == 'yes'
