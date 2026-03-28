@@ -1,6 +1,6 @@
 # Tiny Tapeout project information
 project:
-  title:        "ROTFPGA v2"  # Project title
+  title:        "ROTFPGA v2 staging"  # Project title
   author:       "htfab"        # Your name
   discord:      "h.tamas"      # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
   description:  "A reconfigurable logic circuit made of identical rotatable tiles"  # One line description of what your project does
