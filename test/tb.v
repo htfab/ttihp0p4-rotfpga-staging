@@ -37,7 +37,7 @@ module tb ();
   wire out_sc = uio_out[7];
 
   // Replace tt_um_example with your module name:
-  tt_um_htfab_rotfpga2 user_project (
+  tt_um_htfab_rotfpga2_staging user_project (
       .ui_in  (ui_in),    // Dedicated inputs
       .uo_out (uo_out),   // Dedicated outputs
       .uio_in (uio_in),   // IOs: Input path
